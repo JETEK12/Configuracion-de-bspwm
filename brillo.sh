@@ -10,5 +10,5 @@ else
     current_brightness=$(brightnessctl get)
     max_brightness=$(brightnessctl max)
     brightness_percent=$((current_brightness * 100 / max_brightness))
-    echo "Brillo: ${brightness_percent}%"
+    echo -e "%{F#FFD700}%{F#FFFFFF} ${brightness_percent}%"
 fi

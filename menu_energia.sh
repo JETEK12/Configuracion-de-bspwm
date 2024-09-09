@@ -1,19 +1,22 @@
 #!/bin/bash
 
-# Opciones del menú
-opcion=$(echo -e "Cerrar sesión\nApagar\nReiniciar" | rofi -dmenu -i -p "Elige una opción:")
+# Opciones del menú con íconos de Font Awesome
+opcion=$(echo -e "  Bloquear pantalla\n  Cerrar sesión\n  Reiniciar\n  Apagar" | rofi -dmenu -i -p "Elige una opción:")
 
 # Acciones según la opción seleccionada
 case "$opcion" in
-    "Cerrar sesión")
+    "  Bloquear pantalla")
+        cinnamon-screensaver-command -l
+        ;;
+    "  Cerrar sesión")
         bspc quit  # Si usas bspwm
         # cinnamon-session-quit --logout --no-prompt # Para Cinnamon (descomentar si usas Cinnamon)
         ;;
-    "Apagar")
-        systemctl poweroff
-        ;;
-    "Reiniciar")
+    "  Reiniciar")
         systemctl reboot
+        ;;
+    "  Apagar")
+        systemctl poweroff
         ;;
     *)
         echo "Opción no válida."

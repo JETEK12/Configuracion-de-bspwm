@@ -2,7 +2,8 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d 1 2 3 4 5
+bspc monitor eDP-1 -d 1 2 3 4 5
+bspc monitor HDMI-1 -d D6 D7 D8
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -18,3 +19,6 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 polybar &
+picom &
+feh --bg-scale /usr/share/backgrounds/linuxmint-wilma/mpiwnicki_sunset.jpg &
+bluetoothctl power off &
